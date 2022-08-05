@@ -1,0 +1,28 @@
+README
+
+Simplistic base written by Anna Brunkhorst for UNHCR Rwanda
+
+Using Maven, Twilio, and Apache POI
+
+Program:
+- Functionality:
+  - Reads a column of a given Excel (.xlsx) spreadsheet
+  - Sends a given SMS message to all phone numbers listed in the column
+- Written in Java, significant usage of Twilio (messaging) and Apache POI (file reading)
+- Easy way to send alerts or important messages to refugees, assuming we know phone numbers of intended recipients
+
+Notes:
+- Will need to create a new Twilio account and replace fields (ACCOUNT_SID, AUTH_TOKEN, TWILIO_NUMBER) in App.java with new account info
+- Will need PAID Twilio account to send to multiple numbers / numbers other than owner's number, and to remove extra text from messages
+  - Can make a free trial account and a test spreadsheet where all recipients are the owner's number before diving into paid account if desired
+- Recipient numbers are expected to be in a column in an Excel spreadsheet. Accommodated for any formatting of numbers (spaces, dashes, parentheses, etc.)
+- Recipient numbers are expected to include dialing code (1, 250, etc.). If none do but all are the same dialing code, that would be an easy change to make
+- Excel sheet is expected to have a column containing no numbers other than the phone numbers; presence of other numbers will require slight modifications to the code
+- Did not have time to write out a test suite; add any desired tests to AppTest.java or wherever as needed
+- If functional with Rwandan numbers, can fairly easily be extended to receiving texts as well (and further digested and populated into spreadsheets)
+  - Suggested program: receiving complaints
+  - Simple surveys (e.g. "Have you been using the ___ resource? Y or N")
+
+Possible issues with implementation:
+- May be unseen issues with interaction with Rwandan numbers / different types of phones / numbers
+- May be slow for large quantities of numbers
